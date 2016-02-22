@@ -22,6 +22,6 @@ view_hport = global.ScreenHeight
 
 
 ///Game-Maker Code !IMPORTANT!
-surface_resize(application_surface, global.ScreenWidth, global.ScreenHeight)
+surface_resize (application_surface, global.ScreenWidth, global.ScreenHeight)
 
 
