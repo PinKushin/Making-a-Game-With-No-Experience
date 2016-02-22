@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Gibs Speed and Direction
+            <string>depth = -100
+
+//Gibs Speed and Direction
 InitialiseEnemyCollision(random_range (500,1000), random (360))
 
 image_xscale = 0.5

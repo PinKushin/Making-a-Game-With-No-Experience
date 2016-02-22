@@ -114,7 +114,7 @@ if Mode = "Titles"
         game_end()
     }
 }
-else if Mode = "Game"
+/*else if Mode = "Game"
 {
     if instance_exists(oPlayer)
     {
@@ -133,6 +133,7 @@ else if Mode = "Game"
     }
 
 }
+*/
 </string>
           </argument>
         </arguments>
