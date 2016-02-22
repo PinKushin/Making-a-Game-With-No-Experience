@@ -90,8 +90,8 @@
     <objects name="Weapons">
       <object>objects\oGlob</object>
       <object>objects\oBullet</object>
-      <object>objects\oBaitGun</object>
-      <object>objects\oRapidFireGun</object>
+      <object>objects\oWaveGun</object>
+      <object>objects\oSingleShotGun</object>
       <object>objects\oExplosion</object>
     </objects>
   </objects>
@@ -103,6 +103,10 @@
   <help>
     <rtf>help.rtf</rtf>
   </help>
+  <audiogroups name="audiogroups">
+    <audiogroup name="audiogroup_default"/>
+    <audiogroup name="Project1"/>
+  </audiogroups>
   <TutorialState>
     <IsTutorial>0</IsTutorial>
     <TutorialName></TutorialName>

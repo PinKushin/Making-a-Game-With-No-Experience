@@ -29,9 +29,8 @@
 ScreenShakeAmount = 0
 
 //Enemy Spawning
-SecondsBetweenEnemySpawns = 0.1
+SecondsBetweenEnemySpawns = 1
 SecondsSinceLastEnemySpawn = 0
-MaximumSwarmers = 500
 
 //Part of Gibs Loop and Reasseembly
 TotalGibsToCreate = 8
@@ -74,17 +73,25 @@ if SecondsSinceLastEnemySpawn &gt;= SecondsBetweenEnemySpawns
         SpawnY = choose (0,room_height)
     }else
     {
-        SpawnX = choose (0, room_width)
-        SpawnY = random (room_height)
+                SpawnX = choose (0, room_width)
+                SpawnY = random (room_height)
     }
-    
-    if instance_number (oSwarmer) &lt; MaximumSwarmers
-    {
-        instance_create (SpawnX, SpawnY, choose (oSwarmer))
-    }
-    
+        
+    instance_create (SpawnX, SpawnY, choose (oBoomer,oSwarmer,oSwarmer,oSwarmer, oSwarmer,oSwarmer,oSwarmer,oSwarmer, oSwarmer))
     SecondsSinceLastEnemySpawn = 0
 }
+
+/*Saving the Game
+//WILL NOT WORK AFTER RESTART!!!!
+if keyboard_check_pressed(ord('P'))
+{
+    game_save("Filename")
+}
+if keyboard_check_pressed(ord('L'))
+{
+    game_load("Filename")
+}
+*/
 
 //If the screen is shaking
 if ScreenShakeAmount &gt; 0 
@@ -106,7 +113,7 @@ else
 ShakeX = random_range (-ScreenShakeAmount, ScreenShakeAmount)
 ShakeY = random_range (-ScreenShakeAmount, ScreenShakeAmount)
 view_wview = global.ScreenWidth - abs(ShakeX)
-view_hview = global.ScreenHeight - abs(ShakeY)
+view_hview = global.ScreenWidth - abs(ShakeY)
 view_angle = 0 + (ShakeX / 10)
 view_xview = x + ShakeX
 view_yview = y + ShakeY    

@@ -34,8 +34,22 @@ PowerMax = 75
 
 ResetShunts()
 
-instance_create (x, y, oRapidFireGun)
-instance_create (x, y, oBaitGun)
+/*
+Weapon[0] = oWaveGun
+Weapon[1] = oSingleShotGun
+Weapon[2] = oShotgun
+
+SelectedWeaponIndex = 0
+
+if ButtonPressed
+{   
+    SelectedWeaponIndex = SelectedWeaponIndex + 1
+    if SelectedWeaponIndex &gt;= WeaponCount 
+    {   
+        SelectedWeaponIndex = 0
+    }
+}
+*/
 </string>
           </argument>
         </arguments>
@@ -168,16 +182,11 @@ EnemyTouchingMe = instance_place (x, y, oEnemy)
 if instance_exists (EnemyTouchingMe)
 {   
     ScreenShake(80)
-    with oSwarmer
-    { 
-         ExplodeIntoaNumberOfGibs(5, oSwarmerChunk)
-    }
     //Loop Script
     ExplodeIntoaNumberOfGibs(oGame.TotalGibsToCreate, oDestroyed)
     //Death Sound
     audio_play_sound (aDeath, 1, false)
 }
-
 //Room Bounding to stay InBounds !KEEP AT BOTTOM!
 
 if x &lt; 20 { x = 20 }

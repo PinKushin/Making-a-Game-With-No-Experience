@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = -10
+            <string>depth = 20
 
 SecondsUntilWeExplode = random_range (0.1,0.2)
 
@@ -59,30 +59,28 @@ Host = noone
             <kind>1</kind>
             <string>
 if place_meeting ( x + hspeed, y + vspeed, oSolid)
-{
-    speed = 0
-}
+   {
+        speed = 0
+   }
 
 
 Deceleration = 400 / (room_speed * room_speed)
 
 if speed &gt; Deceleration 
 {
-    speed = speed - Deceleration
+ speed = speed - Deceleration
 } 
 else 
 { 
      speed = 0
 }
 
-//If we are stuck to someone
+//If we're stuck to someone
 if instance_exists (Host)
 {
     //Stick to the enemy we hit
     x = Host.x
     y = Host.y
-    image_xscale = 1.5
-    image_yscale = image_xscale
 }
 //If we are not stuck to anyone yet
 else
@@ -102,23 +100,22 @@ else
             EnemyHit.yShunt = lengthdir_y(speed,direction)
         }  
     }
-    ///Fade Out
-    if instance_exists (self.id)
-    {
-        if speed = 0 
-        {
+}
+
+if instance_exists (self.id)
+{
+   if speed = 0 
+      {
             SecondsUntilFadeOut = SecondsUntilFadeOut - 1/room_speed
             image_alpha = SecondsUntilFadeOut / PuddleLifetime
             image_xscale = 1 + (1 - image_alpha)
             image_yscale = image_xscale
             if image_alpha &lt;= 0 
-            {
-                instance_destroy ()
-            }
-        }
-    }
+                {
+                    instance_destroy ()
+                }
+      }
 }
-
 
 //Room Bounding to stay InBounds !KEEP AT BOTTOM!
 if x &lt; 0 or y &lt; 0 or x &gt; room_width or y &gt; room_width

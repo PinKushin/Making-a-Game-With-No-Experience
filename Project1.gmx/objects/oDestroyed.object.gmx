@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = -100
-
+            <string>
 //Gibs Speed and Direction
 InitialiseEnemyCollision(random_range (300,1500), random (360))
 
@@ -36,7 +35,7 @@ OriginalY = y
 
 //Initially, Gib is not in Reassembling phase
 Reassembling = false
-//Nor has Gib returned to original position to respawn
+//Nor has Gib ireturned to original position to respawn
 InPosition = false
 </string>
           </argument>
