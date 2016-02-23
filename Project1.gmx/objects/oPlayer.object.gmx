@@ -170,7 +170,7 @@ if instance_exists (EnemyTouchingMe)
     ScreenShake(80)
     with oSwarmer
     { 
-         ExplodeIntoaNumberOfGibs(5, oSwarmerChunk)
+         direction = point_direction (oPlayer.x, oPlayer.y, x, y)
     }
     //Loop Script
     ExplodeIntoaNumberOfGibs(oGame.TotalGibsToCreate, oDestroyed)

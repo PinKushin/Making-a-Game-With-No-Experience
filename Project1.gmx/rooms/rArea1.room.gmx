@@ -10,8 +10,57 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>InitialiseRoom()
-SaveProgress()</code>
+  <code>LoadProgress ()
+InitialiseRoom ()
+SaveProgress ()
+
+instance_create (room_width / 2, room_height / 2, oPlayer)
+
+if instance_exists (oGame) = false
+{
+    instance_create (room_width / 2, room_height / 2, oGame)
+}
+
+NumberOfBlocks = irandom_range (3, 10)
+NumberOfBlockAttempts = NumberOfBlocks * 100
+BlockAttempt = 0
+SafetyMargin = 128
+
+while instance_number (oSolid) &lt; NumberOfBlocks &amp;&amp; BlockAttempt &lt; NumberOfBlockAttempts
+{
+    NewBlock = instance_create (random_range (SafetyMargin, room_width - SafetyMargin), random_range (SafetyMargin, room_height - SafetyMargin), oSolid)
+    with NewBlock
+    {
+        //If we're on top of the Player destroy us
+        if place_meeting (x, y, oPlayer)
+        {
+            instance_destroy ()
+        }
+    }
+    BlockAttempt = BlockAttempt + 1
+}
+
+NumberOfBoomers = irandom_range (3, 7)
+NumberOfBoomerAttempts = NumberOfBoomers * 100
+BoomerAttempt = 0
+
+while instance_number (oBoomer) &lt; NumberOfBoomers &amp;&amp; BoomerAttempt &lt; NumberOfBoomerAttempts
+{
+    NewBoomer = instance_create (random (room_width), random (room_height), oBoomer)
+    with NewBoomer
+    {
+        //If we're on top of the Player destroy us
+        if place_meeting (x, y, oPlayer)
+        {
+            instance_destroy ()
+        }
+        if place_meeting (x, y, oSolid)
+        {
+            instance_destroy ()
+        }
+    }
+    BoomerAttempt = BoomerAttempt + 1
+}</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -51,14 +100,7 @@ SaveProgress()</code>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
-  <instances>
-    <instance objName="oPlayer" x="512" y="352" name="inst_80ABD786" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGame" x="32" y="32" name="inst_45FA357A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oBoomer" x="512" y="128" name="inst_818C5F07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oBoomer" x="928" y="224" name="inst_874C3BA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oBoomer" x="384" y="608" name="inst_81F9C0AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oBoomer" x="800" y="608" name="inst_6C347A50" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-  </instances>
+  <instances/>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

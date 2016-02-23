@@ -67,19 +67,20 @@ SecondsSinceLastEnemySpawn = SecondsSinceLastEnemySpawn + 1/room_speed
 
 if SecondsSinceLastEnemySpawn &gt;= SecondsBetweenEnemySpawns
 {
-    //spawn enemy
-    if choose(true,false)
+    //If there are not to many Swarmers and there is still a Boomer alive
+    if instance_number (oSwarmer) &lt; MaximumSwarmers &amp;&amp; instance_number (oBoomer) &gt; 0 
     {
-        SpawnX = random (room_width)
-        SpawnY = choose (0,room_height)
-    }else
-    {
-        SpawnX = choose (0, room_width)
-        SpawnY = random (room_height)
-    }
-    
-    if instance_number (oSwarmer) &lt; MaximumSwarmers
-    {
+        //Choose where to spawn one
+        if choose(true,false)
+        {
+            SpawnX = random (room_width)
+            SpawnY = choose (0,room_height)
+        }else
+        {
+            SpawnX = choose (0, room_width)
+            SpawnY = random (room_height)
+        }
+        //Spawn one there
         instance_create (SpawnX, SpawnY, choose (oSwarmer))
     }
     
