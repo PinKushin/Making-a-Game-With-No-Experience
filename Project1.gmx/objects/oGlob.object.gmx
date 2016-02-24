@@ -3,7 +3,7 @@
   <spriteName>sLiquidShot</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -64,7 +64,7 @@ if place_meeting ( x + hspeed, y + vspeed, oSolid)
 }
 
 
-Deceleration = 400 / (room_speed * room_speed)
+Deceleration = 300 / (room_speed * room_speed)
 
 if speed &gt; Deceleration 
 {

@@ -13,7 +13,7 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>2592</width>
-  <height>1944</height>
+  <width>512</width>
+  <height>512</height>
   <data>images\bRocks.png</data>
 </background>

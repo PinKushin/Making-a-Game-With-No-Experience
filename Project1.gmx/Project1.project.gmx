@@ -18,16 +18,20 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="Enemys">
-      <sprite>sprites\sExplodingFragment</sprite>
-      <sprite>sprites\sExplodingEnemy</sprite>
-      <sprite>sprites\sExplodingEnemyAlert</sprite>
-      <sprite>sprites\sShrinkingEnemy</sprite>
+      <sprite>sprites\sSwarmerChunk</sprite>
+      <sprite>sprites\sBoomerChunk</sprite>
+      <sprite>sprites\sSwarmerSplat</sprite>
+      <sprite>sprites\sBoomerSplat</sprite>
+      <sprite>sprites\sSwarmer</sprite>
+      <sprite>sprites\sSwarmerAlert</sprite>
+      <sprite>sprites\sBoomer</sprite>
     </sprites>
     <sprite>sprites\sDestroyed</sprite>
     <sprite>sprites\sPlayer</sprite>
     <sprite>sprites\sPlayerLowerBody</sprite>
     <sprite>sprites\sPowerUp</sprite>
     <sprite>sprites\sSolid</sprite>
+    <sprite>sprites\sTint</sprite>
     <sprites name="Weapons">
       <sprite>sprites\sMachineGun</sprite>
       <sprite>sprites\sSingleShot</sprite>
@@ -39,7 +43,6 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bRocks</background>
-    <background>background\bStarfield</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -50,8 +53,18 @@
       <script>scripts\InitialiseEnemyCollision.gml</script>
       <script>scripts\StayInsideRoom.gml</script>
     </scripts>
+    <scripts name="Debugger">
+      <script>scripts\DebugLog.gml</script>
+      <script>scripts\DebugLogInitialise.gml</script>
+      <script>scripts\DebugLogDraw.gml</script>
+    </scripts>
     <script>scripts\ExplodeIntoaNumberOfGibs.gml</script>
-    <script>scripts\HitByProjectile.gml</script>
+    <script>scripts\GenerateRoom.gml</script>
+    <scripts name="Hitbox">
+      <script>scripts\HitByProjectile.gml</script>
+      <script>scripts\ProjectileHitSomething.gml</script>
+    </scripts>
+    <script>scripts\IHaveLineOfSiteTo.gml</script>
     <script>scripts\InitialiseRoom.gml</script>
     <scripts name="Menus">
       <script>scripts\DrawTextandUpdateCurrentY.gml</script>
@@ -64,18 +77,20 @@
       <script>scripts\LoadProgress.gml</script>
     </scripts>
     <script>scripts\ScreenShake.gml</script>
-    <script>scripts\IHaveLineOfSiteTo.gml</script>
   </scripts>
   <fonts name="fonts">
-    <font>fonts\fTitle</font>
     <font>fonts\fMenu</font>
+    <font>fonts\fTitle</font>
+    <font>fonts\fDebug</font>
   </fonts>
   <objects name="objects">
     <objects name="Enemys">
       <object>objects\oBoomer</object>
-      <object>objects\oExplodingFragment</object>
+      <object>objects\oBoomerChunk</object>
       <object>objects\oSwarmerChunk</object>
       <object>objects\oSwarmer</object>
+      <object>objects\oSwarmerSplat</object>
+      <object>objects\oBoomerSplat</object>
     </objects>
     <object>objects\oDestroyed</object>
     <object>objects\oGame</object>
@@ -83,6 +98,7 @@
     <object>objects\oPlayer</object>
     <object>objects\oPowerUp</object>
     <object>objects\oSolid</object>
+    <object>objects\oTint</object>
     <objects name="Parents">
       <object>objects\oProjectile</object>
       <object>objects\oEnemy</object>

@@ -33,9 +33,14 @@ Power = 5
 PowerMax = 75
 
 ResetShunts()
-
-instance_create (x, y, oRapidFireGun)
-instance_create (x, y, oBaitGun)
+if instance_exists (oRapidFireGun) = false
+{
+    instance_create (x, y, oRapidFireGun)
+}
+if instance_exists (oBaitGun) = false
+{
+    instance_create (x, y, oBaitGun)
+}
 </string>
           </argument>
         </arguments>

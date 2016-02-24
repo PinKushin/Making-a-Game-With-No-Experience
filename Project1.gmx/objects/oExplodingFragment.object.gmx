@@ -3,7 +3,7 @@
   <spriteName>sExplodingFragment</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-91</depth>
   <persistent>0</persistent>
   <parentName>oProjectile</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = -100
-
-//Gibs Speed and Direction
+            <string>//Gibs Speed and Direction
 InitialiseEnemyCollision(random_range (750,1500), random (360))
 
 image_xscale = 0.5

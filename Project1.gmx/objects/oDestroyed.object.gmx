@@ -3,7 +3,7 @@
   <spriteName>sDestroyed</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>5</depth>
   <persistent>0</persistent>
   <parentName>oProjectile</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,10 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = -100
+            <string>image_xscale = 2.2
+image_yscale = image_xscale
 
 //Gibs Speed and Direction
-InitialiseEnemyCollision(random_range (300,1500), random (360))
+speed = random_range (750,1500) / room_speed
+direction = random (360)
 
 //When we're created remember our original position so we can come back to it
 OriginalX = x
@@ -75,6 +77,11 @@ if Reassembling = false
         image_angle = direction
         //Reduce speed
         speed = speed - Deceleration
+        //Are we about to hit something?
+        if place_meeting (x + hspeed, y + vspeed, oSolid)
+        {
+            speed = 0
+        }
     }
     else
     {   //Gibs speed so low more subtracting will make it 0 or negative
@@ -83,6 +90,7 @@ if Reassembling = false
         speed = 0
         //Get ready to head in the opposite direction
         direction = direction + 180
+        image_angle = direction
         //Reassembly phase
         Reassembling = true
     }

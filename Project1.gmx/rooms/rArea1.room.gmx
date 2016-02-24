@@ -13,54 +13,7 @@
   <code>LoadInventory()
 InitialiseRoom ()
 SaveProgress ()
-
-instance_create (room_width / 2, room_height / 2, oPlayer)
-
-if instance_exists (oGame) = false
-{
-    instance_create (room_width / 2, room_height / 2, oGame)
-}
-
-NumberOfBlocks = irandom_range (3, 10)
-NumberOfBlockAttempts = NumberOfBlocks * 100
-BlockAttempt = 0
-SafetyMargin = 128
-
-while instance_number (oSolid) &lt; NumberOfBlocks &amp;&amp; BlockAttempt &lt; NumberOfBlockAttempts
-{
-    NewBlock = instance_create (random_range (SafetyMargin, room_width - SafetyMargin), random_range (SafetyMargin, room_height - SafetyMargin), oSolid)
-    with NewBlock
-    {
-        //If we're on top of the Player destroy us
-        if place_meeting (x, y, oPlayer)
-        {
-            instance_destroy ()
-        }
-    }
-    BlockAttempt = BlockAttempt + 1
-}
-
-NumberOfBoomers = irandom_range (3, 7)
-NumberOfBoomerAttempts = NumberOfBoomers * 100
-BoomerAttempt = 0
-
-while instance_number (oBoomer) &lt; NumberOfBoomers &amp;&amp; BoomerAttempt &lt; NumberOfBoomerAttempts
-{
-    NewBoomer = instance_create (random (room_width), random (room_height), oBoomer)
-    with NewBoomer
-    {
-        //If we're on top of the Player destroy us
-        if place_meeting (x, y, oPlayer)
-        {
-            instance_destroy ()
-        }
-        if place_meeting (x, y, oSolid)
-        {
-            instance_destroy ()
-        }
-    }
-    BoomerAttempt = BoomerAttempt + 1
-}</code>
+GenerateRoom ()</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
