@@ -63,7 +63,9 @@ if instance_exists (oBaitGun) = false
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*Movement*/
+            <string>DebugLog (speed, "PlayerSpeed")
+
+/*Movement*/
 
 BaseSpeed = 300 / room_speed
 
