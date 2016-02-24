@@ -3,7 +3,7 @@
   <spriteName>sSingleShotGun</spriteName>
   <solid>0</solid>
   <visible>0</visible>
-  <depth>0</depth>
+  <depth>10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,12 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = 10
-
-Owner = noone
+            <string>Owner = noone
 
 SecondsBetweenShots = 0.2
-SecondsSinceLastShot = SecondsBetweenShots + 1
+SecondsSinceLastShot = SecondsBetweenShots
 </string>
           </argument>
         </arguments>

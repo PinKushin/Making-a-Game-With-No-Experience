@@ -62,7 +62,7 @@
     }
 }
 
-if instance_number (oEnemy) &lt;= 0
+if instance_number (oEnemy) &lt;= 0 &amp;&amp; room = rArea1
 {
     if Mode = "Game"
     {
@@ -92,6 +92,7 @@ if instance_number (oEnemy) &lt;= 0
           <argument>
             <kind>1</kind>
             <string>
+
 if Mode = "Titles"
 {
     x = view_wport[0] / 2
@@ -114,7 +115,12 @@ if Mode = "Titles"
     {   
         //go to next room
         Mode = "Game"
-        room_goto (rArea1)
+        room_goto (rTutorial)
+    }
+    
+    if ButtonPressed ("Load Game")
+    {
+        LoadProgress()
     }
     
     if ButtonPressed ("Quit")
@@ -122,25 +128,7 @@ if Mode = "Titles"
         game_end ()
     }
 }
-/*else if Mode = "Game"
-{
-    if instance_exists (oPlayer)
-    {
-        BarIndent = 50
-        BarWidth = view_wport - (BarIndent * 2)
-        BarHeight = 20
-        BarTop = (view_hport - BarIndent) - BarHeight
-        
-        PowerFraction = oPlayer.Power / oPlayer.PowerMax
-        
-        draw_set_color (c_green)
-        draw_set_alpha (0.7)
-        draw_rectangle (BarIndent, BarTop, BarIndent + BarWidth, BarTop + BarHeight, true)
-        draw_rectangle (BarIndent, BarTop, BarIndent + (BarWidth * PowerFraction), BarTop + BarHeight, false)
-        draw_set_alpha (1)
-    }
 
-}*/
 else if Mode = "victory"
 {
     x = view_wport[0] / 2
@@ -163,6 +151,37 @@ else if Mode = "victory"
         room_goto (rArea1)
     }
 }
+/*else if Mode = "Game"
+{
+    if instance_exists (oPlayer)
+    {
+        BarIndent = 50
+        BarWidth = view_wport - (BarIndent * 2)
+        BarHeight = 20
+        BarTop = (view_hport - BarIndent) - BarHeight
+        
+        PowerFraction = oPlayer.Power / oPlayer.PowerMax
+        
+        draw_set_color (c_green)
+        draw_set_alpha (0.7)
+        draw_rectangle (BarIndent, BarTop, BarIndent + BarWidth, BarTop + BarHeight, true)
+        draw_rectangle (BarIndent, BarTop, BarIndent + (BarWidth * PowerFraction), BarTop + BarHeight, false)
+        draw_set_alpha (1)
+    }
+
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </string>

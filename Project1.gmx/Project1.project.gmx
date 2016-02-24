@@ -82,6 +82,7 @@
     <font>fonts\fMenu</font>
     <font>fonts\fTitle</font>
     <font>fonts\fDebug</font>
+    <font>fonts\fTutorial</font>
   </fonts>
   <objects name="objects">
     <objects name="Enemys">
@@ -110,10 +111,12 @@
       <object>objects\oRapidFireGun</object>
       <object>objects\oExplosion</object>
     </objects>
+    <object>objects\oTutorial</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rStart</room>
     <room>rooms\rArea1</room>
+    <room>rooms\rTutorial</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

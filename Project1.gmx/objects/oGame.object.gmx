@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -68,7 +68,7 @@ SecondsSinceLastEnemySpawn = SecondsSinceLastEnemySpawn + 1/room_speed
 if SecondsSinceLastEnemySpawn &gt;= SecondsBetweenEnemySpawns
 {
     //If there are not to many Swarmers and there is still a Boomer alive
-    if instance_number (oSwarmer) &lt; MaximumSwarmers &amp;&amp; instance_number (oBoomer) &gt; 0 
+    if instance_number (oSwarmer) &lt; MaximumSwarmers and instance_number (oBoomer) &gt; 0 and room = rArea1
     {
         //Choose where to spawn one
         if choose(true,false)
