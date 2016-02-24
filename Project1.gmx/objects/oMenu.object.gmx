@@ -127,6 +127,12 @@ if Mode = "Titles"
     {
         game_end ()
     }
+    
+    CurrentY = CurrentY + 50
+    if ButtonPressed ("Itch.io Website")
+    {
+        url_open ("https://pinkushin.itch.io/")
+    }
 }
 
 else if Mode = "victory"
